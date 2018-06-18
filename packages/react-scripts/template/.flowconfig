@@ -1,0 +1,24 @@
+[ignore]
+.*/node_modules/.*
+.*/build/.*
+
+[include]
+
+[libs]
+flow-typed
+
+[lints]
+
+[options]
+all=true
+esproposal.class_static_fields=enable
+esproposal.class_instance_fields=enable
+
+module.name_mapper='^\(.*\)\.css$' -> 'react-scripts/config/flow/css'
+module.name_mapper='^\(.*\)\.\(jpg\|png\|gif\|eot\|svg\|ttf\|woff\|woff2\|mp4\|webm\)$' -> 'react-scripts/config/flow/file'
+
+suppress_type=$FlowIssue
+suppress_type=$FlowFixMe
+
+
+[strict]
