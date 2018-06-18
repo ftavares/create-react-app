@@ -130,6 +130,32 @@ module.exports = function(
     }
   }
 
+
+ let customPackages = [];
+
+ customPackages.push('rxjs')
+
+ if (useYarn) {
+   command = 'yarnpkg';
+   args = ['add'];
+ } else {
+   command = 'npm';
+   args = ['install', '--save', verbose && '--verbose'].filter(e => e);
+ }
+
+ args = args.concat(...customPackages);
+
+ console.log(`Installing Custom Packages using ${command}...`);
+ console.log();
+
+ const proc = spawn.sync(command, args, { stdio: 'inherit' });
+ if (proc.status !== 0) {
+   console.error(`\`${command} ${args.join(' ')}\` failed`);
+   return;
+ }
+
+
+
   // Display the most elegant way to cd.
   // This needs to handle an undefined originalDirectory for
   // backward compatibility with old global-cli's.
