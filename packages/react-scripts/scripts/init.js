@@ -139,7 +139,15 @@ module.exports = function(
                     'flow-typed',
                     'prettier',
                     'rxjs',
-                    'styled-components');
+                    'styled-components',
+                    'react-redux', 
+                    'react-router', 
+                    'react-router-dom', 
+                    'react-router-redux', 
+                    'redux', 
+                    'redux-devtools-extension', 
+                    'redux-thunk'
+                  );
 
  if (useYarn) {
    command = 'yarnpkg';
